@@ -56,7 +56,8 @@
       </div>
 
       <input type="submit" value="soumettre" class="btn" name="send">
-      <p class="poop"><a href="inscription1.php">Inscription</a></p>
+      <a href="../inscription/inscription.php"><input type="button" value="Inscription" class="btn" name="send"></a>
+      
    </form>
 
 </section>
@@ -113,16 +114,21 @@
 <?php
       if(isset($_POST['send'])){
           require("../../db/connexion.php");
-          $email = $_POST['email'];
-          $password = $_POST['password'];
+          echo ($email = $_POST['email']);
+          echo ($password = $_POST['password']);
 
-          echo ($sql = "SELECT * FROM user WHERE user_email='{$email}' and user_pass='{$password}'");
+          $sql = "SELECT * FROM user WHERE user_email='{$email}' and user_pass='{$password}'";
           $result=$conex->query($sql);
-          if($result->fetch_row()){
-             header('location:../../index.php');
+          $data=$result->fetch_assoc();
+          if($data == true){
+               session_name("user");
+               session_start();
+               $_SESSION['email']=$data['user_email'];
+               $_SESSION['user_id']=$data['user_id'];
+               header('location:../../index.php');
           }
           else{
-             header('location:connexion.php?erroor=1');
+             header('location:../inscription/inscription.php');
           }
       }
 ?>

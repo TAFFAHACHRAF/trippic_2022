@@ -42,7 +42,7 @@
 
    <h1 class="heading-title">veuillez remplir ce formulaire</h1>
 
-   <form action="travelguide_form.php" method="post" class="travelguide-form">
+   <form action="guides.php" method="post" class="travelguide-form">
 
       <div class="flex">
          <div class="inputBox">
@@ -54,12 +54,12 @@
             <input type="number" placeholder="nombre d'invités" name="voyageurs">
          </div>
          <div class="inputBox">
-            <span>arrivée :</span>
-            <input type="date" name="arrivée">
+            <span>départ :</span>
+            <input type="date" name="depart">
          </div>
          <div class="inputBox">
-            <span>départ :</span>
-            <input type="date" name="départ">
+            <span>arrivée :</span>
+            <input type="date" name="arrivee">
          </div>
       </div>
 

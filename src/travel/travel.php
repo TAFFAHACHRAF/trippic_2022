@@ -21,7 +21,7 @@
 
 <section class="header">
 
-   <a href="home.php" class="logo">Trippic.</a>
+   <a href="../../index.php" class="logo">Trippic.</a>
 
    <nav class="navbar">
       <a href="../../index.php">Accueil</a>
@@ -43,7 +43,7 @@
 
    <h1 class="heading-title">veuillez remplir ce formulaire</h1>
 
-   <form action="travel_form.php" method="post" class="travel-form">
+   <form action="../agences/agences.php" method="post" class="travel-form">
 
       <div class="flex">
          <div class="inputBox">
@@ -55,12 +55,12 @@
             <input type="number" placeholder="nombre d'invités" name="voyageurs" required>
          </div>
          <div class="inputBox">
-            <span>arrivée :</span>
-            <input type="date" name="arrivée" required>
+            <span>départ :</span>
+            <input type="date" name="depart" required>
          </div>
          <div class="inputBox">
-            <span>départ :</span>
-            <input type="date" name="départ" required>
+            <span>arrivée :</span>
+            <input type="date" name="arrivee" required>
          </div>
       </div>
 

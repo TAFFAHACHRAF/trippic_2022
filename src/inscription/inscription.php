@@ -41,7 +41,7 @@
 
 <section class="inscription">
 
-   <h1 class="heading-title">créez votre compte !</h1>
+   <h1 class="heading-title" id="creer">créez votre compte !</h1>
 
    <form action="" method="POST" class="inscription-form">
             <div class="flex">    
@@ -65,6 +65,10 @@
                     <span>email :</span>
                     <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
                 </div>
+                 <div class="inputBox">
+                    <span>Role</span>
+                    <input type="text" id="role" name="role" class="form-control" placeholder="guide,follower or leader " required="required" autocomplete="off">
+                </div>  
                 <div class="inputBox">
                     <span>mot de passe :</span>
                     <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
@@ -72,9 +76,11 @@
                 <div class="inputBox">
                     <span>confirmation du mot de passe :</span>
                     <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
-                </div>
-                
+                </div>       
+              </div>
+            
                 <input type="submit" value="soumettre" class="btn" name="send">
+                <a href="../connexion/connexion.php"><input type="button" value="Connexion" class="btn" name="send"></a>
             </div>
     </form>
 </section>
@@ -154,10 +160,37 @@
                 $adress = $_POST['adress'];
                 $email = $_POST['email'];
                 $password = $_POST['password_retype'];
+                $role = $_POST['role'];
 
-                $sql = "INSERT INTO user VALUES('', '$user_name' ,'$birth_date', '$mobile', '$adress','$email','$password','user')";
-                $conex->query($sql);
-                echo " <script> window.location.href='../'; </script> ";
+                if($role != 'leader' && $role != 'guide' && $role != 'follower'){
+                    echo "
+                        <script>
+                            alert('Le role doit etre guide,follower ou leader');
+                        </script>
+                    ";
+                    return;
+                }
+                else{
+                    echo "
+                        <script>
+                            document.querySelector('#creer').innerHTML='créez votre compte !';
+                            document.querySelector('#creer').style='color:white';
+                        </script>
+                    ";
+                }
+
+                $sql = "INSERT INTO user VALUES('','$user_name' ,'$birth_date', '$mobile', '$adress','$email','$password','$role','','','','','','')";
+                $result=$conex->query($sql);
+                if($result){
+                    echo " <script> window.location.href='../../'; </script> ";
+                }
+                else{
+                    echo "
+                        <script>
+                            alert('Error');
+                        </script>
+                    ";               
+                }
             }
         }
 

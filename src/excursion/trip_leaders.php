@@ -1,7 +1,10 @@
 <?php
     require("../../db/connexion.php");
-    if(isset($_POST['send'])){
-?>
+    session_name("user");
+    session_start();
+
+        if(isset($_SESSION['email']) and isset($_SESSION['user_id'])){
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,41 +50,34 @@
    <div class="box-container">
       <div class="box-container">
       <?php
-      $destination=$_POST['destination'];
-      $voyageurs=$_POST['voyageurs'];
-      $depart=$_POST['depart'];
-      $arrivee=$_POST['arrivee'];
    
-      $sql="SELECT * FROM user
-            WHERE user_role='guide'
-            AND  ((user_guide_disponibilite between '{$depart}' AND '{$arrivee}') OR (user_guide_ville='{$destination}'))";
+      $sql="SELECT * FROM user WHERE user_role='leader'";
       $res=$conex->query($sql);
-      if($res->fetch_row()){
+        if($res){
             while($data=$res->fetch_assoc()){
-               $image="../../images/".$data['user_image'];
-               ?>
-                  <div class="box">
-                     <div class="image">
+                $image="../../images/".$data['user_image'];
+                ?>
+                    <div class="box">
+                        <div class="image">
                         <img src="<?= $image ?>" alt="">
-                     </div>
-                     <div class="content">
+                        </div>
+                        <div class="content">
                         <h3><?= $data['user_name'] ?></h3>
-                        <p><?= $data['user_guide_description'] ?></p>
+                        <p>Birth date : <?= $data['birth_date'] ?></p>
                         <p>Télé : <?= $data['user_tele'] ?> <br> Email : <?= $data['user_email'] ?></p>
-                        <b>Disponibilté : <?= $data['user_guide_ville'] ?></b>
-                     </div>
-                  </div>
-               <?php
+                        </div>
+                    </div>
+                <?php
             }
-         }
-         else{
+        }
+        else{
             ?>
-            <script>
-                  document.querySelector('#NP').innerHTML="Aucun guider";
-                  document.querySelector('#NP').style="color:red";
+            <script> 
+                document.querySelector('#NP').innerHTML="Aucun user";
+                document.querySelector('#NP').style="color:red";
             </script>
             <?php
-         }
+        }
       ?>
 
    </div>
@@ -137,9 +133,9 @@
 </body>
 </html>
 
-<?php
+<?php 
     }
     else{
-       header("location:travelguides.php");
+        header("location:../connexion/connexion.php");
     }
 ?>

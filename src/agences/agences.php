@@ -1,3 +1,8 @@
+<?php
+    require("../../db/connexion.php");
+    if(isset($_POST['send'])){
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,207 +10,81 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>package</title>
-
-
    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
- 
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="../../css/style.css">
 
 </head>
 <body>
-   
-
 
 <section class="header">
 
-   <a href="home.php" class="logo">travel.</a>
+   <a href="../../index.php" class="logo">travel.</a>
 
    <nav class="navbar">
-      <a href="home.php">Accueil</a>
-      <a href="about.php">à propos</a>
-      <a href="connexion.php">connexion</a>
-      <a href="inscription.php">s'inscrire</a>
+      <a href="../../index.php">Accueil</a>
+      <a href="../about.php">à propos</a>
+      <a href="../connexion/connexion.php">connexion</a>
+      <a href="../inscription/inscription.php">s'inscrire</a>
    </nav>
 
    <div id="menu-btn" class="fas fa-bars"></div>
 
 </section>
 
-
-
-
 <video class='video-bg' autoplay muted loop id="myvideo">
-    <source src="videos/agency.mp4" type="video/mp4">
+    <source src="../../videos/agency.mp4" type="video/mp4">
 </video>
 
 <div class="heading">
-   <h1>Nous proposons :</h1>
+   <h1 id="NP" >Nous proposons :</h1>
 </div>
-
-
-
 <section class="packages">
 
    <div class="box-container">
 
-      <div class="box">
-         <div class="image">
-            <img src="images/2.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>compass rose</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/3.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>the travel guys</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/4.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>air travel</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/5.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/6.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>down home</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/1.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>tickets</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-7.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-8.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-9.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-10.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-11.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
-
-      <div class="box">
-         <div class="image">
-            <img src="images/img-12.jpg" alt="">
-         </div>
-         <div class="content">
-            <h3>adventure & tour</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, perspiciatis!</p>
-            <a href="book.php" class="btn">book now</a>
-         </div>
-      </div>
+      <?php
+        $destination=$_POST['destination'];
+        $voyageurs=$_POST['voyageurs'];
+        $depart=$_POST['depart'];
+        $arrivee=$_POST['arrivee'];
+   
+        $sql="SELECT * FROM agence ,voyage
+              WHERE agence.agence_id=voyage.agence_id
+              AND  ( ( voyage.date_debut = '{$depart}'  AND voyage.date_fin = '{$arrivee}') OR voyage.destination='{$destination}')";
+        $res=$conex->query($sql);
+        if($res->fetch_row()){
+           while($data=$res->fetch_assoc()){
+              $logo="../../images/".$data['agence_logo'];
+              ?>
+               <div class="box">
+                  <div class="image">
+                     <img src="<?= $logo ?>" alt="">
+                  </div>
+                  <div class="content">
+                     <h3><?= $data['agence_nom'] ?></h3>
+                     <p><?= $data['agence_description'] ?></p>
+                     <h4> Télé : <?= $data['agence_tel'] ?></h4>
+                  </div>
+               </div>
+              <?php
+           }
+        }
+           else{
+               ?>
+            <script> 
+                  document.querySelector('#NP').innerHTML="Aucune agence";
+                  document.querySelector('#NP').style="color:red";
+            </script>
+        <?php
+           }
+      ?>
 
    </div>
 
-   <div class="load-more"><span class="btn">load more</span></div>
+   <div id="LM" class="load-more"><span class="btn">load more</span></div>
 
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <section class="footer">
 
@@ -248,12 +127,15 @@
 
 </section>
 
-
-
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
 
 <script src="js/script.js"></script>
 
 </body>
 </html>
+<?php 
+    }
+    else{
+       header("location:../travel/travel.php");
+    }
+?>
