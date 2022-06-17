@@ -56,7 +56,7 @@
             WHERE user_role='guide'
             AND  ((user_guide_disponibilite between '{$depart}' AND '{$arrivee}') OR (user_guide_ville='{$destination}'))";
       $res=$conex->query($sql);
-      if($res->fetch_row()){
+      if($res){
             while($data=$res->fetch_assoc()){
                $image="../../images/".$data['user_image'];
                ?>

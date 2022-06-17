@@ -51,7 +51,9 @@
       <div class="box-container">
       <?php
    
-      $sql="SELECT * FROM user WHERE user_role='leader'";
+      $sql="SELECT * FROM user,trip 
+         WHERE user.user_id=trip.user_id
+         AND  user_role='leader'";
       $res=$conex->query($sql);
         if($res){
             while($data=$res->fetch_assoc()){
@@ -62,9 +64,8 @@
                         <img src="<?= $image ?>" alt="">
                         </div>
                         <div class="content">
-                        <h3><?= $data['user_name'] ?></h3>
-                        <p>Birth date : <?= $data['birth_date'] ?></p>
-                        <p>Télé : <?= $data['user_tele'] ?> <br> Email : <?= $data['user_email'] ?></p>
+                        <p><?= $data['user_name'] ?> <br> Birth date : <?= $data['birth_date'] ?> <br> Télé : <?= $data['user_tele'] ?> <br> Email : <?= $data['user_email'] ?></p>
+                        <p>Description du trip : <?= $data['description'] ?> <br> Date debut : <?= $data['date_debut'] ?> <br> Date fin : <?= $data['date_fin'] ?></p>
                         </div>
                     </div>
                 <?php
@@ -73,7 +74,7 @@
         else{
             ?>
             <script> 
-                document.querySelector('#NP').innerHTML="Aucun user";
+                document.querySelector('#NP').innerHTML="Aucun trip leader";
                 document.querySelector('#NP').style="color:red";
             </script>
             <?php

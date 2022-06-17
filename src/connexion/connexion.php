@@ -114,8 +114,8 @@
 <?php
       if(isset($_POST['send'])){
           require("../../db/connexion.php");
-          echo ($email = $_POST['email']);
-          echo ($password = $_POST['password']);
+          $email = $_POST['email'];
+          $password = $_POST['password'];
 
           $sql = "SELECT * FROM user WHERE user_email='{$email}' and user_pass='{$password}'";
           $result=$conex->query($sql);
@@ -125,6 +125,7 @@
                session_start();
                $_SESSION['email']=$data['user_email'];
                $_SESSION['user_id']=$data['user_id'];
+               $_SESSION['role']=$data['user_role'];
                header('location:../../index.php');
           }
           else{

@@ -40,7 +40,7 @@
    <div class="box-container" style="margin-top:20%">
 
       <div class="box">
-         <h1><a href="trip_leaders.php" style="color:white"> Trip Leader</a> </h1>
+         <h1><a href="trip_leader_profile.php" style="color:white"><?php if(isset($_GET['you_are_not_leader'])){ echo "You are not leader"; } else { echo "Trip Leader"; } ?></a></h1>
       </div>
 
       <div class="box">

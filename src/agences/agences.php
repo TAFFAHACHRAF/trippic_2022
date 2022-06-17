@@ -53,7 +53,7 @@
               WHERE agence.agence_id=voyage.agence_id
               AND  ( ( voyage.date_debut = '{$depart}'  AND voyage.date_fin = '{$arrivee}') OR voyage.destination='{$destination}')";
         $res=$conex->query($sql);
-        if($res->fetch_row()){
+        if($res){
            while($data=$res->fetch_assoc()){
               $logo="../../images/".$data['agence_logo'];
               ?>
