@@ -1,0 +1,4 @@
+Step 1 : Créer une base de donnes nomé trippic sur phpMyadmin
+Step 2 : chercher dans la navbar "importer", puis aploder ce fichhier en clicant sur importer
+Step 3 : Cliué sur save
+Step 4 : La base de données ce céer avec succés.

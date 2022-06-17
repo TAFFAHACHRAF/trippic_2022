@@ -52,17 +52,17 @@
 
       <div class="box">
          <img src="images/icon-7.png" alt="">
-         <h3><a href="src/travel/travel.php"> Agence de voyage </a> </h3>
+         <h3><a style="color:white" href="src/travel/travel.php"> Agence de voyage </a> </h3>
       </div>
 
       <div class="box">
          <img src="images/icon-2.png" alt="">
-         <h3><a href="src/travelguide/travelguide.php">guide touristique</a></h3>
+         <h3><a style="color:white" href="src/travelguide/travelguide.php">guide touristique</a></h3>
       </div>
 
       <div class="box">
          <img src="images/icon-3.png" alt="">
-         <h3><a href="src/inscription/inscription.php">excursion</a></h3>
+         <h3><a style="color:white" href="src/excursion/choix.php">excursion</a></h3>
       </div>
 
 

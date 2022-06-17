@@ -43,39 +43,43 @@
 
    <h1 class="heading-title" id="creer">créez votre compte !</h1>
 
-   <form action="" method="POST" class="inscription-form">
+   <form action="" method="POST" class="inscription-form" enctype="multipart/form-data" >
             <div class="flex">    
                 <div class="inputBox">
                     <span>nom :</span>
-                    <input type="text" name="nom" class="form-control" placeholder="Pseudo" required="required" autocomplete="off">
+                    <input type="text" name="nom" class="form-control" placeholder="Pseudo" required autocomplete="off">
                 </div>
                 <div class="inputBox">
                     <span>Birth day :</span>
-                    <input type="date" name="birth_date" class="form-control" placeholder="birth_date" required="required" autocomplete="off">
+                    <input type="date" name="birth_date" class="form-control" placeholder="birth_date" required autocomplete="off">
                 </div>
                 <div class="inputBox">
                     <span>Mobile :</span>
-                    <input type="numerique" name="mobile" class="form-control" placeholder="mobile" required="required" autocomplete="off">
+                    <input type="numerique" name="mobile" class="form-control" placeholder="mobile" required autocomplete="off">
                 </div>
                 <div class="inputBox">
                     <span>Adress :</span>
-                    <input type="text" name="adress" class="form-control" placeholder="adress" required="required" autocomplete="off">
+                    <input type="text" name="adress" class="form-control" placeholder="adress" required autocomplete="off">
                 </div>
                 <div class="inputBox">
                     <span>email :</span>
-                    <input type="email" name="email" class="form-control" placeholder="Email" required="required" autocomplete="off">
+                    <input type="email" name="email" class="form-control" placeholder="Email" required autocomplete="off">
                 </div>
                  <div class="inputBox">
                     <span>Role</span>
-                    <input type="text" id="role" name="role" class="form-control" placeholder="guide,follower or leader " required="required" autocomplete="off">
+                    <input type="text" id="role" name="role" class="form-control" placeholder="guide,follower or leader " required autocomplete="off">
                 </div>  
                 <div class="inputBox">
                     <span>mot de passe :</span>
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required autocomplete="off">
                 </div>
                 <div class="inputBox">
                     <span>confirmation du mot de passe :</span>
-                    <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required="required" autocomplete="off">
+                    <input type="password" name="password_retype" class="form-control" placeholder="Re-tapez le mot de passe" required autocomplete="off">
+                </div>  
+                <div class="inputBox">
+                    <span>Uploader votre image de profile :</span>
+                    <input type="file" name="img" class="form-control" required autocomplete="off">
                 </div>       
               </div>
             
@@ -162,6 +166,12 @@
                 $password = $_POST['password_retype'];
                 $role = $_POST['role'];
 
+                $pname=rand(1,100000000).'-et.png'; // Nouvelle image
+                $tname=$_FILES["img"]["tmp_name"];
+                $uploads_dir="../../images/";
+                move_uploaded_file($tname,$uploads_dir.$pname);
+                
+
                 if($role != 'leader' && $role != 'guide' && $role != 'follower'){
                     echo "
                         <script>
@@ -179,7 +189,7 @@
                     ";
                 }
 
-                $sql = "INSERT INTO user VALUES('','$user_name' ,'$birth_date', '$mobile', '$adress','$email','$password','$role','','','','','','')";
+                $sql = "INSERT INTO user VALUES('','$user_name' ,'$birth_date', '$mobile', '$adress','$email','$password','$role','$pname','','','','','')";
                 $result=$conex->query($sql);
                 if($result){
                     echo " <script> window.location.href='../../'; </script> ";
